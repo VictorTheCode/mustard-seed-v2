@@ -57,3 +57,26 @@ export const navGroups = [
   { label: "Give", href: "/give" },
   { label: "Contact", href: "/contact" },
 ];
+
+export const coordinators = [
+  {
+    name: "Pst. Oreva Ogbor",
+    role: "Media",
+    image: "/assets/pastor-oreva.jpg",
+  },
+  {
+    name: "Mr Keno Erijo",
+    role: "Worship",
+    image: "/assets/mrkeno.jpg",
+  },
+  {
+    name: "Mr Sunday",
+    role: "Prayer",
+    image: "/assets/sunday.jpg",
+  },
+  {
+    name: "Deacon Patrick Ajah",
+    role: "Hospitality",
+    image: "/assets/orbit2.jpg",
+  },
+];

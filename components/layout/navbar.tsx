@@ -15,6 +15,29 @@ const navlinks = [
   { label: "Give", href: "/give" },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -42,19 +65,44 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-6">
           {navlinks.map((link, i) => (
             <div
               className="uppercase font-light text-xs tracking-[0.25em] text-gray-300"
               key={i}
             >
-              <Link href={link.href}>{link.label}</Link>
+              <Link
+                href={link.href}
+                className="relative py-2 transition-colors duration-300 hover:text-white after:absolute after:bottom-0 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:bg-[#C8A75A] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {link.label}
+              </Link>
             </div>
           ))}
         </div>
 
-        <button onClick={() => setOpen(true)} aria-label="Open menu">
-          <Menu className="text-white md:size-8" />
+        <button
+          onClick={() => setOpen(true)}
+          className="
+    flex
+    items-center
+    gap-3
+    rounded-full
+    border
+    border-white/10
+    bg-white/5
+    px-4
+    py-2
+    backdrop-blur
+    hover:bg-white/10
+    transition
+"
+        >
+          <span className="hidden sm:block uppercase tracking-[0.25em] text-xs">
+            Menu
+          </span>
+
+          <Menu size={20} />
         </button>
       </nav>
 
@@ -64,34 +112,84 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[60] bg-black text-white flex flex-col md:flex-row items-start justify-between p-10 gap-10 overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-[#111111] text-white overflow-y-auto no-scrollbar"
           >
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute top-6 right-6"
-              aria-label="Close menu"
-            >
-              <X />
-            </button>
+            <div className="flex min-h-full flex-col px-6 py-6">
+              {/* HEADER */}
+              <div className="flex items-center justify-between">
+                <Link href="/" onClick={() => setOpen(false)}>
+                  <Image
+                    src="/assets/LOGO.png"
+                    alt="Logo"
+                    width={120}
+                    height={80}
+                  />
+                </Link>
 
-            <div className="flex flex-col gap-5 font-bold mt-16 md:mt-0">
-              {navGroups.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.04 * i }}
+                <button
+                  onClick={() => setOpen(false)}
+                  className="rounded-full border border-white/10 p-3 hover:bg-white/10 transition"
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="text-3xl md:text-5xl  uppercase hover:text-green-400"
-                  >
-                    {link.label}
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* NAV */}
+
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="flex-1 flex flex-col py-4 justify-center"
+              >
+                <div className="space-y-6">
+                  {navGroups.map((link) => (
+                    <motion.div key={link.href} variants={item}>
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="
+                    text-4xl
+                    font-medium
+                    tracking-tight
+                    hover:text-[#C8A75A]
+                    transition-colors
+                  "
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* FOOTER */}
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="border-t border-white/10 pt-8"
+              >
+                <p className="uppercase text-xs tracking-[0.35em] text-[#C8A75A] mb-5">
+                  Follow Us
+                </p>
+
+                <div className="flex gap-6 text-sm text-white/70">
+                  <Link href="https://instagram.com/mustardseedchurch">
+                    Instagram
                   </Link>
-                </motion.div>
-              ))}
+
+                  <Link href="#">YouTube</Link>
+
+                  <Link href="#">TikTok</Link>
+                </div>
+
+                <p className="mt-8 max-w-xs text-sm leading-7 text-white/40">
+                  Raising a generation that knows God, grows together and lives
+                  with purpose.
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         )}

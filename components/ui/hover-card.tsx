@@ -16,7 +16,7 @@ export function HoverCard({
   return (
     <Link
       href={href}
-      className="group relative block aspect-[4/3] overflow-hidden rounded-xl"
+      className="group relative block aspect-3/4 overflow-hidden no-scrollbar"
     >
       <Image
         src={image}

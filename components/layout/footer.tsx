@@ -4,31 +4,6 @@ import { socials } from "@/constants/svgs";
 const Footer = () => {
   return (
     <footer className="bg-[#111111] text-white">
-      {/* CTA */}
-      <section className="border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-          <p className="uppercase tracking-[0.3em] text-xs text-[#C8A75A] mb-4">
-            Join Our Family
-          </p>
-
-          <h2 className="text-4xl font-medium leading-tight">
-            We&apos;d love to meet you this Sunday.
-          </h2>
-
-          <p className="text-white/60 font-light mt-5 max-w-xl mx-auto leading-8">
-            Whether you&apos;re visiting for the first time or looking for a
-            community to grow in Christ, there&apos;s a place for you here.
-          </p>
-
-          <Link
-            href="/join"
-            className="inline-flex items-center justify-center mt-10 h-14 px-8 rounded-full bg-[#C8A75A] text-black font-medium hover:scale-105 transition"
-          >
-            Plan Your Visit
-          </Link>
-        </div>
-      </section>
-
       {/* Footer */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Logo + Description */}
