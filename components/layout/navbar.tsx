@@ -5,15 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { navGroups } from "@/constants";
-
-const navlinks = [
-  { label: "About", href: "/about" },
-  { label: "Events", href: "/events" },
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Give", href: "/give" },
-];
+import { navlinks, navGroups } from "@/constants";
 
 const container = {
   hidden: {},

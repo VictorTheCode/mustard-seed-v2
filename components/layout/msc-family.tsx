@@ -1,59 +1,98 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
+import ParallaxImage from "@/components/ui/parallax-image";
+import { Reveal } from "@/components/ui/reveal";
 
-const Family = () => {
+export default function Family() {
   return (
-    <div>
-      {/* CTA */}
-      <section className="border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-          <p className="uppercase tracking-[0.3em] text-xs text-[#C8A75A] mb-4">
-            Join Our Family
-          </p>
+    <section className="relative min-h-[80vh] overflow-hidden bg-black text-white">
+      {/* BACKGROUND */}
 
-          <h2 className="text-4xl font-medium leading-tight">
-            We&apos;d love to meet you this Sunday.
-          </h2>
+      <ParallaxImage
+        src="/assets/gallery1.JPG"
+        alt="Mustard Seed Teens community"
+        className="absolute inset-0 h-full"
+        imageClassName="scale-[1.08]"
+        amount={12}
+        sizes="100vw"
+      />
 
-          <p className="text-white/60 font-light mt-5 max-w-xl mx-auto leading-8">
-            Whether you&apos;re visiting for the first time or looking for a
-            community to grow in Christ, there&apos;s a place for you here.
-          </p>
+      {/* OVERLAY */}
 
-          <div className="relative w-full h-[300px] md:h-[580px] rounded-2xl md:rounded-3xl overflow-hidden mt-12 mb-12 shadow-2xl group">
-            <Image
-              src="/assets/gallery1.jpg"
-              alt="Mustard Seed Church Community"
-              fill
-              sizes="(max-w-1200px) 100vw, 1200px"
-              className="object-cover"
-            />
-            {/* Elegant overlay to enhance readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+      <div className="absolute inset-0 bg-black/60" />
 
-            {/* Content at bottom left */}
-            <div className="absolute bottom-0 left-0 p-6 md:p-12 text-left max-w-lg md:max-w-xl z-10">
-              <span className="text-[#C8A75A] text-xs font-semibold tracking-[0.25em] uppercase block mb-3">
-                A Place to Belong
-              </span>
-              <blockquote className="text-white text-base md:text-lg font-light leading-relaxed italic">
-                &ldquo;Every Sunday we gather not just as a congregation, but as
-                a family. Real people, real friendships, and a real pursuit of
-                Jesus.&rdquo;
-              </blockquote>
-            </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+      {/* CONTENT */}
+
+      <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl flex-col justify-end px-6 pb-12 md:px-10 md:pb-16">
+        <div className="max-w-4xl">
+          <Reveal>
+            <motion.p className="text-xs uppercase tracking-[0.3em] text-[#B7CFA8]">
+              Join the family
+            </motion.p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h2 className="mt-5 text-5xl font-medium leading-[0.95] tracking-[-0.04em] md:text-8xl">
+              There&apos;s room
+              <br />
+              <span className="text-[#B7CFA8]">for you here.</span>
+            </h2>
+          </Reveal>
+
+          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <Reveal delay={0.2}>
+              <p className="max-w-xl text-base leading-8 text-white/65 md:text-lg">
+                Whether this is your first Sunday or you&apos;ve been with us
+                for years, you&apos;re welcome here. Come meet people, worship
+                with us and discover what God is doing.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <Link
+                href="/contact"
+                className="
+                  group
+                  inline-flex
+                  w-fit
+                  shrink-0
+                  items-center
+                  gap-3
+                  border
+                  border-white/30
+                  px-6
+                  py-4
+                  text-xs
+                  uppercase
+                  tracking-[0.2em]
+                  transition
+                  hover:bg-white
+                  hover:text-black
+                "
+              >
+                Plan your visit
+                <ArrowUpRight
+                  size={17}
+                  className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </Link>
+            </Reveal>
           </div>
-
-          <Link
-            href="/join"
-            className="inline-flex items-center justify-center h-14 px-8 rounded-full bg-[#C8A75A] text-black font-medium hover:scale-105 transition"
-          >
-            Plan Your Visit
-          </Link>
         </div>
-      </section>
-    </div>
-  );
-};
+      </div>
 
-export default Family;
+      {/* TOP LABEL */}
+
+      <div className="absolute left-6 top-8 z-10 md:left-10">
+        <span className="text-xs uppercase tracking-[0.3em] text-white/50">
+          Mustard Seed Teens
+        </span>
+      </div>
+    </section>
+  );
+}

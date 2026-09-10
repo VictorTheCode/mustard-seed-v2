@@ -6,89 +6,63 @@ import { motion } from "motion/react";
 
 const AboutHero = () => {
   return (
-    <section className="relative min-h-[85vh] overflow-hidden flex items-center">
-      {/* Background */}
-
+    <section className="relative h-[90vh] min-h-[600px] w-full flex flex-col justify-end overflow-hidden px-6 pb-12 md:px-12 md:pb-24">
+      {/* Background Image */}
       <Image
         src="/assets/community.jpg"
-        alt="Mustard Seed Teens"
+        alt="Mustard Seed Teens gathered in worship"
         fill
         priority
-        className="object-cover"
+        className="object-cover object-top scale-105"
       />
 
-      {/* Overlay */}
-
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-[#111111]" />
-
-      {/* Decorative Glow */}
-
-      <div className="absolute -top-52 left-1/2 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-[#C8A75A]/10 blur-[140px]" />
+      {/* Opinionated Gradient: Darker at the bottom-left for text legibility, fading out top-right */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F0D] via-[#0A0F0D]/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F0D]/80 to-transparent" />
 
       {/* Content */}
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-          }}
-          className="max-w-3xl"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl"
         >
-          {/* Heading */}
-          <div className="text-5xl md:text-6xl lg:text-8xl leading-[0.95] tracking-widest text-center uppercase font-bold">
-            About Us
-          </div>
+          {/* Typography signature: Mixing stark uppercase sans with elegant lowercase serif */}
+          <h1 className="text-5xl sm:text-6xl md:text-[6vw] leading-[0.85] tracking-tighter font-black text-white uppercase">
+            Find your <br />
+            <span className="font-serif italic font-light text-[#D4AF37] tracking-normal normal-case">
+              purpose
+            </span>{" "}
+            in him.
+          </h1>
 
-          {/* Description */}
-
-          <p className="mt-8 max-w-xl text-white/70 text-lg leading-8">
-            We exist to create a Christ-centred community where teenagers
-            discover purpose, build meaningful friendships, and become
-            passionate followers of Jesus.
+          <p className="mt-8 max-w-md text-[#F4F0EA]/70 text-lg md:text-xl leading-relaxed font-light">
+            We aren&apos;t a waiting room for adult faith. We are a
+            Christ-centred community building lifelong friendships and
+            passionate followers of Jesus today.
           </p>
 
-          {/* Buttons */}
-
-          <div className="mt-12 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4">
             <Link
               href="/events"
-              className="rounded-full bg-[#C8A75A] px-8 py-4 font-medium text-black transition hover:scale-105"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-none bg-[#D4AF37] px-8 py-4 font-bold text-[#0A0F0D] transition-transform hover:scale-[1.02]"
             >
-              Join Our Next Service
+              Join Next Service
+              {/* Subtle hover arrow reveal */}
+              <span className="ml-0 max-w-0 opacity-0 transition-all duration-300 ease-out group-hover:ml-3 group-hover:max-w-xs group-hover:opacity-100">
+                →
+              </span>
             </Link>
-
             <Link
               href="/gallery"
-              className="rounded-full border border-white/15 px-8 py-4 text-white transition hover:bg-white/10"
+              className="inline-flex items-center justify-center px-8 py-4 text-white uppercase tracking-widest text-xs font-semibold border-b border-white/20 transition-colors hover:border-[#D4AF37] hover:text-[#D4AF37]"
             >
-              View Gallery
+              Explore Gallery
             </Link>
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-
-      <motion.div
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 2,
-        }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <p className="uppercase tracking-[0.3em] text-[10px] text-white/50">
-            Scroll
-          </p>
-
-          <div className="h-12 w-[1px] bg-gradient-to-b from-white to-transparent" />
-        </div>
-      </motion.div>
     </section>
   );
 };

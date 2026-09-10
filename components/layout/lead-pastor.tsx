@@ -1,71 +1,207 @@
+// "use client";
+
+// import Image from "next/image";
+// import Link from "next/link";
+// import { ArrowUpRight } from "lucide-react";
+// import { motion } from "motion/react";
+
+// export default function LeadPastor() {
+//   return (
+//     <section className="overflow-hidden bg-[#111] px-6 py-24 text-white md:px-10 md:py-32">
+//       <div className="mx-auto max-w-7xl">
+//         {/* SECTION LABEL */}
+//         <div className="flex items-center justify-between border-b border-white/10 pb-6">
+//           <p className="text-xs uppercase tracking-[0.3em] text-white/45">
+//             Leadership
+//           </p>
+
+//           <span className="text-xs text-white/30">02</span>
+//         </div>
+
+//         <div className="mt-16 grid items-center gap-16 md:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+//           {/* IMAGE */}
+//           <motion.div
+//             initial={{ opacity: 0, x: -40 }}
+//             whileInView={{ opacity: 1, x: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8 }}
+//             className="relative mx-auto w-full max-w-md"
+//           >
+//             {/* BACK FRAME */}
+//             <div className="absolute -bottom-5 -right-5 h-full w-full border border-[#6E8B73] md:-bottom-7 md:-right-7" />
+
+//             {/* IMAGE */}
+//             <div className="relative aspect-[4/5] rotate-[-2deg] overflow-hidden">
+//               <Image
+//                 src="/assets/pastor-oreva.jpg"
+//                 alt="Pastor Oreva Ogbor"
+//                 fill
+//                 className="object-cover"
+//               />
+//             </div>
+
+//             {/* SMALL LABEL */}
+//             <div className="absolute -bottom-5 left-5 bg-[#31553C] px-5 py-4 text-xs uppercase tracking-[0.2em]">
+//               Lead Pastor
+//             </div>
+//           </motion.div>
+
+//           {/* CONTENT */}
+//           <motion.div
+//             initial={{ opacity: 0, x: 40 }}
+//             whileInView={{ opacity: 1, x: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.8 }}
+//           >
+//             <p className="text-xs uppercase tracking-[0.3em] text-[#8BA68E]">
+//               Pastor
+//             </p>
+
+//             <h2 className="mt-5 text-5xl font-medium leading-[0.95] tracking-[-0.04em] md:text-7xl">
+//               Oreva
+//               <br />
+//               Ogbor.
+//             </h2>
+
+//             <div className="mt-10 h-px w-20 bg-[#6E8B73]" />
+
+//             <p className="mt-8 max-w-xl text-lg leading-9 text-white/60">
+//               Every teenager carries purpose. Our calling is to help them
+//               discover Jesus, grow in faith and impact their generation with the
+//               Gospel.
+//             </p>
+
+//             <p className="mt-6 max-w-xl text-base leading-8 text-white/40">
+//               Through teaching, mentorship and genuine community, we want to
+//               raise young people who know God and understand who He has called
+//               them to become.
+//             </p>
+
+//             <Link
+//               href="/about"
+//               className="group mt-10 inline-flex items-center gap-3 border-b border-white/20 pb-3 text-xs uppercase tracking-[0.2em]"
+//             >
+//               Meet our leadership
+//               <ArrowUpRight
+//                 size={17}
+//                 className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+//               />
+//             </Link>
+//           </motion.div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
+import { Reveal } from "@/components/ui/reveal";
 
 export default function LeadPastor() {
   return (
-    <section className="bg-[#111111] py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <p className="uppercase tracking-[0.35em] text-xs text-[#C8A75A]">
-            Leadership
-          </p>
+    <section className="overflow-hidden bg-[#111] px-6 py-24 text-white md:px-10 md:py-32">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <div className="flex items-center justify-between border-b border-white/10 pb-6">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/45">
+              Leadership
+            </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl">Meet Our Lead Pastor</h2>
-        </motion.div>
+            <span className="text-xs text-white/30">02</span>
+          </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            animate={{}}
-            viewport={{ once: true }}
-            className="relative w-[140px] h-[180px] md:w-[360px] md:h-[450px]"
-          >
-            <div className="absolute top-4 left-4 h-full w-full rounded-2xl border-2 border-[#C8A75A]" />
+        <div className="mt-16 grid items-center gap-16 md:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+          {/* IMAGE */}
 
-            <div className="relative h-full w-full overflow-hidden rounded-2xl rotate-[-3deg]">
-              <Image
-                src="/assets/pastor-oreva.jpg"
-                alt="Lead Pastor"
-                fill
-                className="object-cover"
+          <Reveal x={-50} duration={0.9}>
+            <div className="relative mx-auto w-full max-w-md">
+              <motion.div
+                initial={{ opacity: 0, x: 15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                }}
+                className="absolute -bottom-5 -right-5 h-full w-full border border-[#6E8B73] md:-bottom-7 md:-right-7"
               />
+
+              <motion.div
+                whileHover={{
+                  rotate: -1,
+                  scale: 1.01,
+                }}
+                transition={{ duration: 0.5 }}
+                className="relative aspect-[4/5] rotate-[-2deg] overflow-hidden"
+              >
+                <Image
+                  src="/assets/pastor-oreva.jpg"
+                  alt="Pastor Oreva Ogbor"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+
+              <div className="absolute -bottom-5 left-5 bg-[#31553C] px-5 py-4 text-xs uppercase tracking-[0.2em]">
+                Lead Pastor
+              </div>
             </div>
-          </motion.div>
+          </Reveal>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="uppercase tracking-[0.3em] text-xs text-[#C8A75A]">
-              Lead Pastor
-            </p>
+          {/* CONTENT */}
 
-            <h3 className="mt-3 text-3xl md:text-5xl">Pastor Oreva Ogbor</h3>
+          <div>
+            <Reveal delay={0.15}>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#8BA68E]">
+                Pastor
+              </p>
 
-            <p className="mt-6 text-white/70 leading-8">
-              Every teenager carries purpose. Our calling is to help them
-              discover Jesus, grow in faith and impact their generation with the
-              Gospel.
-            </p>
+              <h2 className="mt-5 text-5xl font-medium leading-[0.95] tracking-[-0.04em] md:text-7xl">
+                Oreva
+                <br />
+                Ogbor.
+              </h2>
+            </Reveal>
 
-            <Link
-              href="/about"
-              className="inline-flex mt-8 items-center gap-2 text-[#C8A75A]"
-            >
-              Learn More →
-            </Link>
-          </motion.div>
+            <Reveal delay={0.25}>
+              <div className="mt-10 h-px w-20 bg-[#6E8B73]" />
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <p className="mt-8 max-w-xl text-lg leading-9 text-white/60">
+                Every teenager carries purpose. Our calling is to help them
+                discover Jesus, grow in faith and impact their generation with
+                the Gospel.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <p className="mt-6 max-w-xl text-base leading-8 text-white/40">
+                Through teaching, mentorship and genuine community, we want to
+                raise young people who know God and understand who He has called
+                them to become.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.5}>
+              <Link
+                href="/about"
+                className="group mt-10 inline-flex items-center gap-3 border-b border-white/20 pb-3 text-xs uppercase tracking-[0.2em]"
+              >
+                Meet our leadership
+                <ArrowUpRight
+                  size={17}
+                  className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
