@@ -37,11 +37,6 @@ const pillars = [
 export default function OurMission() {
   return (
     <section className="relative min-h-screen py-24 md:py-40">
-      {/* 
-        Fixed Background Image
-        This stays pinned while the user scrolls through the pillars, 
-        giving a premium, cinematic feel. 
-      */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/newbg.jpg"

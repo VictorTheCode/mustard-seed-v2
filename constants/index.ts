@@ -346,3 +346,54 @@ export const bankAccounts = [
     accountNumber: "0123456789",
   },
 ];
+
+export const journeyPeople = [
+  {
+    src: "/assets/orbit3.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "top-[2%] left-[3%]",
+    size: "w-28 h-36 md:w-32 md:h-40",
+    rotate: "-rotate-6",
+    delay: 0,
+  },
+  {
+    src: "/assets/orbit4.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "top-[4%] right-[8%]",
+    size: "w-28 h-36 md:w-32 md:h-40",
+    rotate: "rotate-5",
+    delay: 0.8,
+  },
+  {
+    src: "/assets/orbit5.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "bottom-[8%] left-[1%]",
+    size: "w-28 h-36 md:w-32 md:h-40",
+    rotate: "rotate-4",
+    delay: 1.4,
+  },
+  {
+    src: "/assets/orbit6.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "bottom-[2%] right-[3%]",
+    size: "w-28 h-36 md:w-32 md:h-40",
+    rotate: "-rotate-5",
+    delay: 0.5,
+  },
+  {
+    src: "/assets/orbit7.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "top-[35%] left-[-2%]",
+    size: "w-24 h-32 md:w-28 md:h-36",
+    rotate: "-rotate-3",
+    delay: 1.8,
+  },
+  {
+    src: "/assets/orbit8.jpg",
+    alt: "Mustard Seed Church pioneer",
+    position: "top-[40%] right-[-1%]",
+    size: "w-24 h-32 md:w-28 md:h-36",
+    rotate: "rotate-6",
+    delay: 1.1,
+  },
+];

@@ -64,7 +64,7 @@ export default function WhoWeAre() {
             <div className="relative">
               <ParallaxImage
                 src="/assets/pastoral.jpg"
-                alt="Mustard Seed Teens"
+                alt="Mustard Seed church"
                 className="aspect-[4/5]"
                 amount={7}
               />
@@ -103,7 +103,7 @@ export default function WhoWeAre() {
           <div>
             <Reveal delay={0.15}>
               <p className="max-w-2xl text-xl leading-9 text-black/65 md:text-2xl md:leading-10">
-                Mustard Seed Teens is a community of young people learning to
+                Mustard Seed church is a community of young people learning to
                 follow Jesus, discover purpose and live out their faith in
                 everyday life.
               </p>

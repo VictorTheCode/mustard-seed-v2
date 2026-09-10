@@ -3,42 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import { motion } from "motion/react";
-
-const events = [
-  {
-    id: 1,
-    date: "07",
-    month: "SEP",
-    title: "Teen Service",
-    description:
-      "A time of worship, the Word, friendship and growing together in Christ.",
-    time: "10:00 AM",
-    location: "Assemblies of God Church, Ikeja",
-    href: "/events/teen-service",
-  },
-  {
-    id: 2,
-    date: "14",
-    month: "SEP",
-    title: "Bible Study",
-    description:
-      "Come with your questions as we explore Scripture and grow deeper in our faith.",
-    time: "10:00 AM",
-    location: "Assemblies of God Church, Ikeja",
-    href: "/events/bible-study",
-  },
-  {
-    id: 3,
-    date: "05",
-    month: "OCT",
-    title: "Worship Night",
-    description:
-      "An evening set apart for worship, prayer and encountering God together.",
-    time: "5:00 PM",
-    location: "Assemblies of God Church, Ikeja",
-    href: "/events/worship-night",
-  },
-];
+import { eventPreviews } from "@/constants";
 
 export default function EventsPreview() {
   return (
@@ -70,7 +35,7 @@ export default function EventsPreview() {
 
         {/* Events */}
         <div className="mt-20 border-t border-black/15">
-          {events.map((event, index) => (
+          {eventPreviews.map((event, index) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
@@ -140,7 +105,7 @@ export default function EventsPreview() {
         {/* Footer */}
         <div className="mt-8 flex items-center justify-between">
           <span className="text-[10px] uppercase tracking-[0.25em] text-black/30">
-            {events.length.toString().padStart(2, "0")} upcoming events
+            {eventPreviews.length.toString().padStart(2, "0")} upcoming events
           </span>
 
           <Link

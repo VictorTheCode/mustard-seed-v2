@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -11,28 +10,14 @@ import {
   Landmark,
 } from "lucide-react";
 import { bankAccounts } from "@/constants";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 
 const Give = () => {
-  const [copied, setCopied] = useState<string | null>(null);
-
-  const copyAccountNumber = async (accountNumber: string) => {
-    try {
-      await navigator.clipboard.writeText(accountNumber);
-      setCopied(accountNumber);
-
-      setTimeout(() => {
-        setCopied(null);
-      }, 2000);
-    } catch (error) {
-      console.error("Failed to copy account number:", error);
-    }
-  };
+  const { copy, isCopied } = useCopyToClipboard(2000);
 
   return (
     <main className="min-h-screen bg-[#0B0B0B] text-white">
-      {/* ================= HERO ================= */}
       <section className="relative flex min-h-[75vh] items-end overflow-hidden">
-        {/* Replace this with your giving image */}
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[url('/assets/bgcoordinators.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/30" />
@@ -160,13 +145,11 @@ const Give = () => {
 
                           <button
                             type="button"
-                            onClick={() =>
-                              copyAccountNumber(account.accountNumber)
-                            }
+                            onClick={() => copy(account.accountNumber)}
                             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/5 transition hover:bg-[#123B2A] hover:text-white"
                             aria-label="Copy account number"
                           >
-                            {copied === account.accountNumber ? (
+                            {isCopied(account.accountNumber) ? (
                               <Check size={16} />
                             ) : (
                               <Copy size={16} />
@@ -174,7 +157,7 @@ const Give = () => {
                           </button>
                         </div>
 
-                        {copied === account.accountNumber && (
+                        {isCopied(account.accountNumber) && (
                           <p className="mt-2 text-xs text-[#123B2A]">
                             Account number copied.
                           </p>

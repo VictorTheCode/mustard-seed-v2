@@ -7,16 +7,14 @@ import { motion } from "motion/react";
 const AboutHero = () => {
   return (
     <section className="relative h-[90vh] min-h-[600px] w-full flex flex-col justify-end overflow-hidden px-6 pb-12 md:px-12 md:pb-24">
-      {/* Background Image */}
       <Image
-        src="/assets/community.jpg"
+        src="/assets/community.JPG"
         alt="Mustard Seed Teens gathered in worship"
         fill
         priority
         className="object-cover object-top scale-105"
       />
 
-      {/* Opinionated Gradient: Darker at the bottom-left for text legibility, fading out top-right */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F0D] via-[#0A0F0D]/60 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F0D]/80 to-transparent" />
 

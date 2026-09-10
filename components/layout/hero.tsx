@@ -3,8 +3,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Play, ArrowDown } from "lucide-react";
 import { useRef } from "react";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
@@ -14,169 +39,240 @@ export default function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen overflow-hidden bg-[#111]"
+      className="relative min-h-screen overflow-hidden bg-[#050505] text-white"
     >
-      {/* IMAGE */}
+      {/* =====================================================
+          DESKTOP IMAGE
+      ===================================================== */}
+
       <motion.div
-        style={{ y: imageY }}
-        className="absolute inset-0 -top-[8%] h-[116%]"
+        style={{
+          y: imageY,
+          scale: imageScale,
+        }}
+        className="absolute inset-0 hidden md:block"
       >
         <Image
-          src="/assets/pastoral.JPG"
-          alt="Mustard Seed Teens"
+          src="/assets/main-image.JPG"
+          alt="Mustard Seed Teens Church"
           fill
           priority
-          sizes="100vw"
           className="object-cover object-center"
+          sizes="100vw"
         />
+
+        {/* Image treatment */}
+        <div className="absolute inset-0 bg-black/15" />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/25" />
       </motion.div>
 
-      {/* IMAGE TREATMENT */}
-      <div className="absolute inset-0 bg-black/25" />
+      {/* =====================================================
+          MOBILE IMAGE
+      ===================================================== */}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent" />
+      <div className="relative block h-[48vh] min-h-[360px] w-full md:hidden">
+        <motion.div
+          style={{
+            y: imageY,
+            scale: imageScale,
+          }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/assets/hero.JPG"
+            alt="Mustard Seed Teens Church"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#111]/95 via-[#111]/20 to-black/10" />
+          {/* Fade naturally into content */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#050505]" />
+        </motion.div>
+      </div>
 
-      {/* CONTENT */}
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <motion.div
-        style={{ y: contentY }}
-        className="relative z-10 min-h-screen max-w-7xl mx-auto px-6 py-6 md:px-8 md:py-12 flex flex-col justify-between mt-32"
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="
+          relative z-10
+          -mt-1
+          flex
+          min-h-[52vh]
+          items-end
+          px-6
+          pb-24
+          md:min-h-screen
+          md:items-end
+          md:px-10
+          md:pb-20
+          lg:px-12
+          lg:pb-24
+        "
       >
-        {/* MAIN CONTENT */}
-        <div className="pb-8 md:pb-10">
-          <div className="max-w-6xl">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.1,
-              }}
-              className="mb-6 text-xs uppercase tracking-[0.35em] text-[#D8C48A]"
-            >
-              Mustard Seed Church
-            </motion.p>
+        <div className="w-full max-w-5xl">
+          {/* Eyebrow */}
+          <motion.div variants={item} className="mb-5 flex items-center gap-3">
+            <span className="h-px w-8 bg-emerald-500" />
 
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.2,
-              }}
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/55">
+              Welcome Home
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            variants={item}
+            className="
+              max-w-4xl
+              font-bold
+              leading-[0.88]
+              tracking-[-0.055em]
+              text-white
+              text-[clamp(3.5rem,8vw,7rem)]
+            "
+          >
+            <span className="block text-[0.42em] font-medium leading-none tracking-[-0.02em] text-white/75">
+              Welcome to
+            </span>
+
+            <span className="mt-2 block text-[#C8A75A] font-serif italic">
+              Mustard Seed
+            </span>
+
+            <span className="mt-1 max-md:text-5xl block text-white/75">
+              Teens Church.
+            </span>
+          </motion.h1>
+
+          {/* Bottom content row */}
+          <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <motion.p
+              variants={item}
               className="
-                text-white
-                text-[clamp(3.5rem,7vw,6.8rem)]
-                leading-[0.82]
-                tracking-[-0.055em]
-                font-medium
-                max-w-5xl
+                max-w-[500px]
+                text-[15px]
+                leading-7
+                text-white/65
+                md:text-base
               "
             >
-              A generation
-              <br />
-              <span className="text-white/55">that knows</span>
-              <br />
-              Jesus.
-            </motion.h1>
+              A family in Ikeja, Lagos where teenagers discover faith, purpose,
+              friendship, and the courage to live for Christ.
+            </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.45,
-              }}
-              className="mt-8 flex flex-col md:flex-row md:items-end gap-8"
+              variants={item}
+              className="flex flex-col gap-3 sm:flex-row"
             >
-              <p className="max-w-md text-sm md:text-base leading-7 text-white/65">
-                A community of teenagers discovering faith, purpose, friendship
-                and the courage to live for Christ.
-              </p>
+              <Link
+                href="/get-involved/join"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-md
+                  bg-emerald-600
+                  px-7
+                  py-4
+                  text-[11px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  hover:bg-emerald-500
+                "
+              >
+                Join Us This Sunday
+              </Link>
 
-              <div className="flex items-center gap-6">
-                <Link
-                  href="/get-involved/join"
-                  className="
-                    group
-                    inline-flex
-                    items-center
-                    gap-3
-                    text-sm
-                    uppercase
-                    tracking-[0.18em]
-                    text-white
-                    border-b
-                    border-white/40
-                    pb-2
-                    hover:border-[#D8C48A]
-                    transition-colors
-                  "
-                >
-                  Join the family
-                  <ArrowUpRight
-                    className="
-                      w-4 h-4
-                      transition-transform
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
-                    "
-                  />
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="
-                    text-sm
-                    uppercase
-                    tracking-[0.18em]
-                    text-white/45
-                    hover:text-white
-                    transition-colors
-                  "
-                >
-                  Our story
-                </Link>
-              </div>
+              <Link
+                href="/sermons"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-2
+                  rounded-md
+                  border
+                  border-white/30
+                  bg-black/10
+                  px-7
+                  py-4
+                  text-[11px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  backdrop-blur-sm
+                  transition-all
+                  duration-300
+                  hover:-translate-y-0.5
+                  hover:border-white/70
+                  hover:bg-white/10
+                "
+              >
+                <Play className="h-3.5 w-3.5" fill="currentColor" />
+                Watch Online
+              </Link>
             </motion.div>
           </div>
         </div>
+      </motion.div>
 
-        {/* BOTTOM INFORMATION */}
-        <div className="border-t border-white/15 pt-5 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/35">
-              Sundays
-            </span>
+      {/* =====================================================
+          SCROLL
+      ===================================================== */}
 
-            <span className="hidden sm:block w-px h-3 bg-white/20" />
-          </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="
+          absolute
+          bottom-7
+          right-8
+          z-20
+          hidden
+          items-center
+          gap-3
+          md:flex
+          lg:right-12
+        "
+      >
+        <span className="text-[9px] uppercase tracking-[0.3em] text-white/40">
+          Scroll
+        </span>
 
-          <motion.a
-            href="#next"
-            animate={{ y: [0, 5, 0] }}
-            transition={{
-              repeat: Infinity,
-              duration: 2,
-              ease: "easeInOut",
-            }}
-            className="flex items-center gap-3 text-white/40 hover:text-white transition-colors"
-          >
-            <span className="hidden md:block text-[10px] uppercase tracking-[0.25em]">
-              Explore
-            </span>
-
-            <ArrowDown className="w-4 h-4" />
-          </motion.a>
-        </div>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut",
+          }}
+        >
+          <ArrowDown className="h-4 w-4 text-white/40" strokeWidth={1.5} />
+        </motion.div>
       </motion.div>
     </section>
   );

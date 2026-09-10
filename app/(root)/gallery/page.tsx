@@ -1,56 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, X } from "lucide-react";
+import { useLightbox } from "@/hooks/use-lightbox";
 
 const galleryImages = [
   {
     id: 1,
-    src: "/assets/gallery1.jpg",
+    src: "/assets/gallery1.JPG",
     alt: "Youth Worship",
     category: "Worship",
     className: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
-    src: "/assets/gallery2.jpg",
+    src: "/assets/gallery2.JPG",
     alt: "Community Games",
     category: "Community",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     id: 3,
-    src: "/assets/gallery3.jpg",
+    src: "/assets/gallery3.JPG",
     alt: "Bible Study",
     category: "Growth",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     id: 4,
-    src: "/assets/gallery4.jpg",
+    src: "/assets/gallery4.JPG",
     alt: "Camp Fire",
     category: "Community",
     className: "md:col-span-1 md:row-span-2",
   },
   {
     id: 5,
-    src: "/assets/gallery5.jpg",
+    src: "/assets/gallery5.JPG",
     alt: "Group Photo",
     category: "Community",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     id: 6,
-    src: "/assets/gallery6.jpg",
+    src: "/assets/gallery6.JPG",
     alt: "Prayer",
     category: "Prayer",
     className: "md:col-span-2 md:row-span-2",
   },
   {
     id: 7,
-    src: "/assets/gallery7.jpg",
+    src: "/assets/gallery7.JPG",
     alt: "Retreat",
     category: "Events",
     className: "md:col-span-1 md:row-span-2",
@@ -124,60 +126,20 @@ const categories = [
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const filteredImages =
     activeCategory === "All"
       ? galleryImages
       : galleryImages.filter((image) => image.category === activeCategory);
 
-  const selectedImage =
-    selectedIndex !== null ? filteredImages[selectedIndex] : null;
-
-  const closeLightbox = () => {
-    setSelectedIndex(null);
-  };
-
-  const showNext = () => {
-    if (selectedIndex === null) return;
-
-    setSelectedIndex((selectedIndex + 1) % filteredImages.length);
-  };
-
-  const showPrevious = () => {
-    if (selectedIndex === null) return;
-
-    setSelectedIndex(
-      (selectedIndex - 1 + filteredImages.length) % filteredImages.length,
-    );
-  };
-
-  useEffect(() => {
-    if (selectedIndex === null) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
-
-      if (event.key === "ArrowRight") {
-        showNext();
-      }
-
-      if (event.key === "ArrowLeft") {
-        showPrevious();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [selectedIndex, filteredImages.length]);
+  const {
+    selectedIndex,
+    selectedItem: selectedImage,
+    open: openLightbox,
+    close: closeLightbox,
+    next: showNext,
+    prev: showPrevious,
+  } = useLightbox(filteredImages);
 
   return (
     <main className="min-h-screen bg-[#111] text-white">
@@ -218,7 +180,7 @@ export default function Gallery() {
                 key={category}
                 onClick={() => {
                   setActiveCategory(category);
-                  setSelectedIndex(null);
+                  closeLightbox();
                 }}
                 className={`shrink-0 border-b pb-2 text-xs uppercase tracking-[0.2em] transition-colors ${
                   active
@@ -260,7 +222,7 @@ export default function Gallery() {
                   transition={{
                     duration: 0.45,
                   }}
-                  onClick={() => setSelectedIndex(index)}
+                  onClick={() => openLightbox(index)}
                   className={`group relative overflow-hidden bg-[#1a1a1a] text-left ${image.className}`}
                   aria-label={`Open ${image.alt}`}
                 >
@@ -320,13 +282,13 @@ export default function Gallery() {
               </h2>
             </div>
 
-            <a
+            <Link
               href="/get-involved/join"
               className="group inline-flex w-fit items-center gap-4 border-b border-white/30 pb-3 text-xs uppercase tracking-[0.2em] transition hover:border-white"
             >
               Join the family
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

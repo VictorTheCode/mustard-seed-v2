@@ -10,6 +10,7 @@ interface RevealProps {
   duration?: number;
   y?: number;
   x?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
   once?: boolean;
 }
 
@@ -18,18 +19,30 @@ export function Reveal({
   className = "",
   delay = 0,
   duration = 0.7,
-  y = 30,
-  x = 0,
+  y,
+  x,
+  direction = "up",
   once = true,
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
+
+  let initialY = 0;
+  let initialX = 0;
+
+  if (direction === "up") initialY = y ?? 30;
+  else if (direction === "down") initialY = y ?? -30;
+  else if (direction === "left") initialX = x ?? -30;
+  else if (direction === "right") initialX = x ?? 30;
+
+  if (y !== undefined) initialY = y;
+  if (x !== undefined) initialX = x;
 
   return (
     <motion.div
       initial={{
         opacity: 0,
-        y: shouldReduceMotion ? 0 : y,
-        x: shouldReduceMotion ? 0 : x,
+        y: shouldReduceMotion ? 0 : initialY,
+        x: shouldReduceMotion ? 0 : initialX,
       }}
       whileInView={{
         opacity: 1,

@@ -144,27 +144,6 @@ export default function ActivitiesPage() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-[#163D2A] px-6 py-24 text-center text-white md:px-10">
-        <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-          Find your place
-        </p>
-
-        <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-medium leading-tight md:text-6xl">
-          There&apos;s something
-          <br />
-          <span className="text-[#B7CFA8]">for everyone.</span>
-        </h2>
-
-        <Link
-          href="/get-involved"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm uppercase tracking-widest text-black transition hover:bg-[#B7CFA8]"
-        >
-          Get involved
-          <ArrowUpRight size={17} />
-        </Link>
-      </section>
     </main>
   );
 }
