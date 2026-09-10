@@ -173,8 +173,8 @@ export default function HeroSection() {
                 md:text-base
               "
             >
-              A family in Ikeja, Lagos where teenagers discover faith, purpose,
-              friendship, and the courage to live for Christ.
+              A family at Assemblies of God, Ikeja where teenagers discover the
+              faith, purpose, friendship, and the courage to live for Christ.
             </motion.p>
 
             <motion.div
@@ -206,7 +206,7 @@ export default function HeroSection() {
               </Link>
 
               <Link
-                href="/sermons"
+                href="https://www.youtube.com/@agikeja"
                 className="
                   inline-flex
                   items-center
