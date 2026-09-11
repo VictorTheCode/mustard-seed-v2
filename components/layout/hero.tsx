@@ -187,7 +187,6 @@ export default function HeroSection() {
                   inline-flex
                   items-center
                   justify-center
-                  rounded-md
                   bg-emerald-600
                   px-7
                   py-4
@@ -212,7 +211,6 @@ export default function HeroSection() {
                   items-center
                   justify-center
                   gap-2
-                  rounded-md
                   border
                   border-white/30
                   bg-black/10

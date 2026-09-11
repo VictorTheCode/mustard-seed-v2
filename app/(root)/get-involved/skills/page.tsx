@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
+import { FormField } from "../_components/form-field";
 
 const skills = [
   "Music & Worship",
@@ -141,13 +142,13 @@ export default function SkillsPage() {
 
           <form className="border-t border-black/15">
             <div className="grid md:grid-cols-2">
-              <Field label="First name" name="firstName" />
-              <Field label="Last name" name="lastName" />
+              <FormField label="First name" name="firstName" />
+              <FormField label="Last name" name="lastName" />
             </div>
 
             <div className="grid md:grid-cols-2">
-              <Field label="Email address" name="email" type="email" />
-              <Field label="Phone number" name="phone" type="tel" />
+              <FormField label="Email address" name="email" type="email" />
+              <FormField label="Phone number" name="phone" type="tel" />
             </div>
 
             <div className="border-b border-black/15 py-8">
@@ -174,13 +175,13 @@ export default function SkillsPage() {
               </div>
             </div>
 
-            <Field
+            <FormField
               label="Tell us about your experience"
               name="experience"
               textarea
             />
 
-            <Field
+            <FormField
               label="Anything else you want us to know?"
               name="message"
               textarea
@@ -197,34 +198,5 @@ export default function SkillsPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  textarea = false,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  textarea?: boolean;
-}) {
-  const className =
-    "w-full bg-transparent border-0 outline-none px-0 py-5 text-lg placeholder:text-black/30";
-
-  return (
-    <div className="border-b border-black/15 px-0 md:px-6 first:md:border-r">
-      <label className="block pt-6 text-xs uppercase tracking-[0.2em] text-black/40">
-        {label}
-      </label>
-
-      {textarea ? (
-        <textarea name={name} rows={5} className={className} />
-      ) : (
-        <input type={type} name={name} className={className} />
-      )}
-    </div>
   );
 }

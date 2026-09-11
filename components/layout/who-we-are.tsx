@@ -114,6 +114,10 @@ export default function WhoWeAre() {
                 We believe church should be a place where teenagers can ask
                 questions, build genuine friendships, develop their gifts and
                 encounter God without pretending to have everything figured out.
+                <br />
+                To provide a sanctuary where teens can grow spiritually,
+                intellectually, and socially. Through radical discipleship and
+                excellence in all things.
               </p>
             </Reveal>
 

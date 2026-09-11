@@ -8,42 +8,42 @@ const activities = [
     title: "Career Growth",
     description:
       "We help young people discover opportunities, develop useful skills and prepare for the future.",
-    image: "/assets/activities/career.jpg",
+    image: "/assets/career.jpg",
   },
   {
     number: "02",
     title: "Pastoral Care",
     description:
       "A safe community where teenagers can talk, receive guidance, pray and grow together.",
-    image: "/assets/activities/pastoral.jpg",
+    image: "/assets/pastoral-care.jpg",
   },
   {
     number: "03",
     title: "Games & Sports",
     description:
       "From football to indoor games, we believe friendship and healthy competition are part of community.",
-    image: "/assets/activities/sports.jpg",
+    image: "/assets/games.png",
   },
   {
     number: "04",
     title: "Worship",
     description:
       "We create room for young people to encounter God through worship, prayer and the Word.",
-    image: "/assets/activities/worship.jpg",
+    image: "/assets/hands.jpg",
   },
   {
     number: "05",
     title: "Outreach",
     description:
       "We take what we learn beyond the church walls by serving people and sharing the love of Christ.",
-    image: "/assets/activities/outreach.jpg",
+    image: "/assets/outreach2.webp",
   },
   {
     number: "06",
     title: "Creative Skills",
     description:
       "Photography, graphics, programming, animation, sound engineering and other practical skills.",
-    image: "/assets/activities/creative.jpg",
+    image: "/assets/creative.jpg",
   },
 ];
 

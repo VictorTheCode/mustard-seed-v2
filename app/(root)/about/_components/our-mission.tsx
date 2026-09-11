@@ -51,12 +51,13 @@ export default function OurMission() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-20 max-w-2xl">
-          <h2 className="text-xs font-mono tracking-[0.3em] text-[#D4AF37] uppercase mb-4">
-            Our DNA
+          <h2 className="text-lg font-mono tracking-[0.3em] text-[#D4AF37] uppercase mb-4">
+            Our Mission
           </h2>
           <p className="text-3xl md:text-5xl font-medium tracking-tight text-white leading-[1.1]">
-            Raising a generation that loves Jesus, grows together, and lives on
-            mission.
+            To see every teenager saturated with the Gospel of Jesus Christ,
+            transformed by His grace, and launched into their God-given destiny
+            as world-changers.
           </p>
         </div>
 

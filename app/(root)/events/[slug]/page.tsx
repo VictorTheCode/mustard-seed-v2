@@ -216,16 +216,16 @@ export default async function EventPage({
 
       {/* EVENT IMAGE */}
       <section className="px-6 pb-24 md:px-8 md:pb-32">
-        <div className="relative mx-auto aspect-[16/8] max-w-7xl overflow-hidden">
+        <div className="relative h-full mx-auto aspect-[16/8] max-w-7xl overflow-hidden">
           <Image
             src={event.image}
             alt={`${event.title} at Mustard Seed Teens`}
             fill
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover"
+            className="object-contain"
           />
 
-          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-0" />
         </div>
       </section>
 

@@ -76,16 +76,20 @@ export default function Navbar() {
     gap-3
     rounded-full
     border
-    border-white/10
-    bg-white/5
+    border-white/20
+    bg-black/[0.03]
     px-4
     py-2
-    backdrop-blur
-    hover:bg-white/10
+    text-white/80
     transition
-"
+    hover:bg-black/[0.06]
+    md:border-white/10
+    md:bg-white/5
+    md:text-white
+    md:hover:bg-white/10
+  "
         >
-          <span className="hidden sm:block uppercase tracking-[0.25em] text-xs">
+          <span className="hidden sm:block text-xs uppercase tracking-[0.25em]">
             Menu
           </span>
 

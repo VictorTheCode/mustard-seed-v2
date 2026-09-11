@@ -30,7 +30,7 @@ export const programs = [
   {
     title: "Career Growth",
     description: "Mentorship and real talk about what's next.",
-    image: "/assets/community.jpg",
+    image: "/assets/career.jpg",
     href: "/activities",
   },
   {
@@ -148,12 +148,12 @@ export const announcements = [
   {
     id: 1,
     type: "PROGRAM",
-    title: "Teen Retreat 2026",
+    title: "Sunday Service",
     description:
-      "A weekend of faith, friendship, worship and discovering who God has called you to become.",
-    image: "/assets/retreat.jpg",
+      "Fellowship with us, worship and discover who God has called you to become.",
+    image: "/assets/flyer.webp",
     date: "28 AUG 2026",
-    href: "/announcements/teen-retreat",
+    href: "/events/teens-service",
     featured: true,
   },
   {
@@ -239,17 +239,17 @@ export const eventPreviews = [
 export const events = [
   {
     id: "1",
-    title: "Teen Service",
-    slug: "teen-service",
+    title: "Sunday Service",
+    slug: "sunday-service",
     description:
       "A time for worship, the Word, friendship and growing together in Christ.",
-    date: "2026-09-07",
-    time: "10:00 AM",
+    date: "2026-09-11",
+    time: "08:00 AM",
     location: "Assemblies of God Church, Ikeja",
-    image: "/assets/gallery1.JPG",
-    category: "Teen Service",
+    image: "/assets/flyer.webp",
+    category: "Sunday Service",
     details: `
-      Our Sunday Teen Service is a place where teenagers can encounter God,
+      Our Sunday Service is a place where teenagers can encounter God,
       build genuine friendships and grow in their understanding of Scripture.
 
       Come expecting worship, practical teaching, prayer, conversations and
@@ -265,7 +265,7 @@ export const events = [
     date: "2026-09-14",
     time: "10:00 AM",
     location: "Assemblies of God Church, Ikeja",
-    image: "/assets/gallery2.JPG",
+    image: "/assets/teens2.jpeg",
     category: "Bible Study",
     details: `
       Bible Study is an opportunity to slow down, ask honest questions and
@@ -284,7 +284,7 @@ export const events = [
     date: "2026-10-05",
     time: "5:00 PM",
     location: "Assemblies of God Church, Ikeja",
-    image: "/assets/gallery3.JPG",
+    image: "/assets/kenocordinate.jpg",
     category: "Worship",
     details: `
       An evening dedicated to worship, prayer and seeking God together.
@@ -300,14 +300,22 @@ export const events = [
 export const coordinators = [
   {
     name: "Pst. Oreva Ogbor",
-    role: "Media",
+    role: "Lead Pastor / AG Ikeja Sectional Teens Co-ordinator",
     image: "/assets/pastor-oreva.jpg",
   },
-  { name: "Mr Keno Erijo", role: "Worship", image: "/assets/mrkeno.jpg" },
-  { name: "Mr Sunday", role: "Prayer", image: "/assets/sunday.jpg" },
+  {
+    name: "Mr Keno Erijo",
+    role: "Lead Teens Co-ordinator",
+    image: "/assets/mrkeno.jpg",
+  },
+  {
+    name: "Mr Sunday Adagbon",
+    role: "Teens Co-ordinator",
+    image: "/assets/sunday.jpg",
+  },
   {
     name: "Deacon Patrick Ajah",
-    role: "Hospitality",
+    role: "AG Ikeja Senior Teens Co-ordinator",
     image: "/assets/orbit2.jpg",
   },
 ];
@@ -336,9 +344,9 @@ export const values = [
 
 export const bankAccounts = [
   {
-    bank: "GTBank",
-    accountName: "Mustard Seed Teens",
-    accountNumber: "0123456789",
+    bank: "AG Mortage Bank Plc",
+    accountName: "THE MUSTARD SEED (AG TEENS CHURCH IKEJA)",
+    accountNumber: "0000498238",
   },
   {
     bank: "Access Bank",
