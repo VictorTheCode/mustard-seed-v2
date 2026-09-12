@@ -45,12 +45,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${display.variable} h-full antialiased`}
+      className={`${display.variable} dark h-full antialiased`}
     >
-      <body className={display.className}>
+      <body className={`${display.className} bg-[#0c130e] text-[#f2f7f3]`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

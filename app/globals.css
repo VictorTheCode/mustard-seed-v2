@@ -2,12 +2,13 @@
 
 /* globals.css */
 :root {
-  --bg: #ffffff;
-  --fg: #121212;
-  --accent: #355c45;
-  --accent-soft: #eafbee;
-  --line: #e2e8e4;
-  --lg: #f7f7f7;
+  --bg: #0c130e;
+  --fg: #f2f7f3;
+  --accent: #4ade80;
+  --accent-soft: #14231a;
+  --line: #223026;
+  --gold: #c8a75a;
+  --lg: #1a2920;
 }
 
 .dark {
