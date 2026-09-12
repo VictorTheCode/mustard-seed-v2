@@ -36,13 +36,13 @@ export const programs = [
   {
     title: "Pastoral Care",
     description: "One-on-one support, prayer, a safe space.",
-    image: "/assets/pastoral.jpg",
+    image: "/assets/pastoral.JPG",
     href: "/activities",
   },
   {
     title: "Games & Sports",
     description: "Football, tournaments, real friendships.",
-    image: "/assets/teens.jpg",
+    image: "/assets/teens.JPG",
     href: "/activities",
   },
 ];
@@ -52,12 +52,12 @@ export const programs = [
 export const previewImages = [
   {
     id: 1,
-    src: "/assets/gallery1.jpg",
+    src: "/assets/gallery1.JPG",
     className: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
-    src: "/assets/gallery2.jpg",
+    src: "/assets/gallery2.JPG",
     className: "md:col-span-1 md:row-span-2",
   },
   {
@@ -67,12 +67,12 @@ export const previewImages = [
   },
   {
     id: 4,
-    src: "/assets/gallery4.jpg",
+    src: "/assets/gallery4.JPG",
     className: "md:col-span-1 md:row-span-1",
   },
   {
     id: 5,
-    src: "/assets/gallery5.jpg",
+    src: "/assets/gallery5.JPG",
     className: "md:col-span-1 md:row-span-2",
   },
   {
@@ -91,7 +91,7 @@ export const previewImages = [
 export const photos = [
   {
     id: 1,
-    src: "/assets/gallery1.jpg",
+    src: "/assets/gallery1.JPG",
     title: "Sunday Service",
     description: "",
     href: "/gallery",
@@ -99,19 +99,19 @@ export const photos = [
   {
     title: "Youth Camp",
     description: "",
-    image: "/assets/gallery2.jpg",
+    image: "/assets/gallery2.JPG",
     href: "/gallery",
   },
   {
     title: "Baptism Day",
     description: "",
-    image: "/assets/gallery3.jpg",
+    image: "/assets/gallery3.JPG",
     href: "/gallery",
   },
   {
     title: "Games Night",
     description: "",
-    image: "/assets/gallery4.jpg",
+    image: "/assets/gallery4.JPG",
     href: "/gallery",
   },
 ];
@@ -172,7 +172,7 @@ export const announcements = [
     type: "COMMUNITY",
     title: "Join Our WhatsApp Group",
     description: "Stay connected with everything happening at Mustard Seed.",
-    image: "/assets/gallery1.jpg",
+    image: "/assets/gallery1.JPG",
     date: "14 AUG 2026",
     href: "/get-involved/join",
     featured: false,

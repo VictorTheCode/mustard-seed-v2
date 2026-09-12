@@ -82,7 +82,7 @@ export default function JoinPage() {
 
           <div className="relative min-h-[400px]">
             <Image
-              src="/assets/gallery1.jpg"
+              src="/assets/gallery1.JPG"
               alt="Mustard Seed community"
               fill
               priority

@@ -63,7 +63,7 @@ export default function WhoWeAre() {
           <Reveal y={50}>
             <div className="relative">
               <ParallaxImage
-                src="/assets/pastoral.jpg"
+                src="/assets/pastoral.JPG"
                 alt="Mustard Seed church"
                 className="aspect-[4/5]"
                 amount={7}
