@@ -3,9 +3,61 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { values } from "@/constants";
+import { WHATSAPP_LINK, WhatsAppIcon } from "@/constants/svgs";
+import { FormField } from "../_components/form-field";
+
 
 export default function JoinPage() {
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    source: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const isFormFilled =
+    formData.firstName.trim() !== "" &&
+    formData.lastName.trim() !== "" &&
+    formData.email.trim() !== "";
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      // Save the data – actual endpoint will be wired up with the backend later
+      await fetch("/api/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      // Non-blocking: still redirect even if the save fails for now
+      console.warn("Could not persist form data; backend not yet connected.");
+    } finally {
+      setSubmitting(false);
+    }
+
+    // Redirect to the WhatsApp community group
+    router.push(WHATSAPP_LINK);
+  }
+
   return (
     <main className="bg-[#F3F2ED] text-[#111]">
       {/* HERO */}
@@ -34,7 +86,7 @@ export default function JoinPage() {
               alt="Mustard Seed community"
               fill
               priority
-              className="object-cover"
+              className="object-cover w-full"
             />
           </div>
         </div>
@@ -101,15 +153,15 @@ export default function JoinPage() {
             </p>
           </div>
 
-          <form className="border-t border-black/15">
+          <form className="border-t border-black/15" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2">
-              <Field label="First name" name="firstName" />
-              <Field label="Last name" name="lastName" />
+              <FormField label="First name" name="firstName" value={formData.firstName} onChange={handleChange} />
+              <FormField label="Last name" name="lastName" value={formData.lastName} onChange={handleChange} />
             </div>
 
             <div className="grid md:grid-cols-2">
-              <Field label="Email address" name="email" type="email" />
-              <Field label="Phone number" name="phone" type="tel" />
+              <FormField label="Email address" name="email" type="email" value={formData.email} onChange={handleChange} />
+              <FormField label="Phone number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
             </div>
 
             <div className="border-b border-black/15">
@@ -120,7 +172,8 @@ export default function JoinPage() {
               <select
                 name="source"
                 className="w-full bg-transparent py-5 outline-none text-lg"
-                defaultValue=""
+                value={formData.source}
+                onChange={handleChange}
               >
                 <option value="" disabled>
                   Select an option
@@ -133,14 +186,17 @@ export default function JoinPage() {
               </select>
             </div>
 
-            <Field label="Tell us about yourself" name="message" textarea />
+            <FormField label="Tell us about yourself" name="message" textarea value={formData.message} onChange={handleChange} />
+
+            {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
             <button
               type="submit"
-              className="mt-8 inline-flex items-center gap-3 bg-[#31553C] text-white px-7 py-4 text-sm uppercase tracking-[0.18em] hover:bg-[#163D2A] transition"
+              disabled={submitting || !isFormFilled}
+              className="mt-8 inline-flex items-center gap-3 bg-[#31553C] text-white px-7 py-4 text-sm uppercase tracking-[0.18em] hover:bg-[#163D2A] transition disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              Join the family
-              <ArrowUpRight className="w-4 h-4" />
+              {submitting ? "Joining…" : "Join community"}
+              <WhatsAppIcon className="w-5 h-5" />
             </button>
           </form>
         </div>
@@ -167,39 +223,5 @@ export default function JoinPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  textarea = false,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  textarea?: boolean;
-}) {
-  const className =
-    "w-full bg-transparent border-0 outline-none px-0 py-5 text-lg placeholder:text-black/30";
-
-  return (
-    <div className="border-b border-black/15 px-0 md:px-6 first:md:border-r">
-      <label className="block pt-6 text-xs uppercase tracking-[0.2em] text-black/40">
-        {label}
-      </label>
-
-      {textarea ? (
-        <textarea
-          name={name}
-          rows={5}
-          className={className}
-          placeholder="Tell us a little more..."
-        />
-      ) : (
-        <input type={type} name={name} className={className} />
-      )}
-    </div>
   );
 }

@@ -26,7 +26,7 @@ const activities = [
     title: "Counselling",
     description:
       "A safe place to talk, pray and receive biblical guidance without judgment.",
-    image: "/assets/counselling.jpg",
+    image: "/assets/counselling.webp",
   },
   {
     number: "04",

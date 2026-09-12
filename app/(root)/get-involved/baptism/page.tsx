@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { FormField } from "../_components/form-field";
 
 const expectations = [
   "A short conversation with our team before the baptism.",
@@ -147,16 +148,16 @@ export default function BaptismPage() {
 
           <form className="border-t border-black/15">
             <div className="grid md:grid-cols-2">
-              <Field label="First name" name="firstName" />
-              <Field label="Last name" name="lastName" />
+              <FormField label="First name" name="firstName" />
+              <FormField label="Last name" name="lastName" />
             </div>
 
             <div className="grid md:grid-cols-2">
-              <Field label="Email address" name="email" type="email" />
-              <Field label="Phone number" name="phone" type="tel" />
+              <FormField label="Email address" name="email" type="email" />
+              <FormField label="Phone number" name="phone" type="tel" />
             </div>
 
-            <Field
+            <FormField
               label="Why do you want to be baptized?"
               name="message"
               textarea
@@ -199,39 +200,5 @@ export default function BaptismPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  textarea = false,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  textarea?: boolean;
-}) {
-  const className =
-    "w-full bg-transparent border-0 outline-none px-0 py-5 text-lg placeholder:text-black/30 focus:ring-0";
-
-  return (
-    <div className="border-b border-black/15 px-0 md:px-6 first:md:border-r">
-      <label className="block pt-6 text-xs uppercase tracking-[0.2em] text-black/40">
-        {label}
-      </label>
-
-      {textarea ? (
-        <textarea
-          name={name}
-          rows={5}
-          className={className}
-          placeholder="Tell us a little more..."
-        />
-      ) : (
-        <input type={type} name={name} className={className} />
-      )}
-    </div>
   );
 }

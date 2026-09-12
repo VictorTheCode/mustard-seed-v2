@@ -256,7 +256,7 @@ export default function AnnouncementsPreview() {
           </span>
 
           <Link
-            href="/announcements"
+            href="/events"
             className="
               group
               inline-flex

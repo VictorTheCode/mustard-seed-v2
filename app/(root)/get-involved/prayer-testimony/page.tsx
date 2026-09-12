@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Check, Send } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { FormField } from "../_components/form-field";
 
 const testimonies = [
   {
@@ -35,7 +36,7 @@ export default function PrayerTestimonyPage() {
       {/* HERO */}
       <section className="relative min-h-[75vh] overflow-hidden bg-[#111] text-white">
         <Image
-          src="/assets/prayer-testimony.jpg"
+          src="/assets/testimony.jpg"
           alt="Mustard Seed Teens"
           fill
           priority
@@ -97,16 +98,33 @@ export default function PrayerTestimonyPage() {
                 }}
                 className="border-t border-white/15"
               >
-                <Field label="Name" name="name" placeholder="Your name" />
+                <FormField
+                  label="Name"
+                  className="border-b border-white/15"
+                  inputClassName="text-white placeholder:text-white/25"
+                  labelClassName="text-white/35"
+                  name="name"
+                  placeholder="Your name"
+                />
 
-                <Field
+                <FormField
                   label="Email"
+                  className="border-b border-white/15"
+                  inputClassName="text-white placeholder:text-white/25"
+                  labelClassName="text-white/35"
                   name="email"
                   type="email"
                   placeholder="you@example.com"
                 />
 
-                <Field label="Phone" name="phone" placeholder="+234..." />
+                <FormField
+                  label="Phone"
+                  className="border-b border-white/15"
+                  inputClassName="text-white placeholder:text-white/25"
+                  labelClassName="text-white/35"
+                  name="phone"
+                  placeholder="+234..."
+                />
 
                 <div className="border-b border-white/15 py-6">
                   <label
@@ -241,14 +259,20 @@ export default function PrayerTestimonyPage() {
                 }}
                 className="border-t border-white/20"
               >
-                <Field
+                <FormField
                   label="Name"
+                  className="border-b border-white/20"
+                  inputClassName="text-white placeholder:text-white/25"
+                  labelClassName="text-white/40"
                   name="testimonyName"
                   placeholder="Your name"
                 />
 
-                <Field
+                <FormField
                   label="Email"
+                  className="border-b border-white/20"
+                  inputClassName="text-white placeholder:text-white/25"
+                  labelClassName="text-white/40"
                   name="testimonyEmail"
                   type="email"
                   placeholder="you@example.com"
@@ -304,37 +328,5 @@ export default function PrayerTestimonyPage() {
         </div>
       </section>
     </main>
-  );
-}
-
-function Field({
-  label,
-  name,
-  placeholder,
-  type = "text",
-}: {
-  label: string;
-  name: string;
-  placeholder: string;
-  type?: string;
-}) {
-  return (
-    <div className="border-b border-white/15 py-6">
-      <label
-        htmlFor={name}
-        className="mb-3 block text-[10px] uppercase tracking-[0.25em] text-white/35"
-      >
-        {label}
-      </label>
-
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required
-        placeholder={placeholder}
-        className="w-full bg-transparent text-base text-white outline-none placeholder:text-white/20"
-      />
-    </div>
   );
 }

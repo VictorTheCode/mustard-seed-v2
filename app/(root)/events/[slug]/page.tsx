@@ -8,6 +8,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { events } from "@/constants";
+import { WHATSAPP_LINK } from "@/constants/svgs";
 
 function formatDate(date: string) {
   const parsed = new Date(date);
@@ -141,7 +142,7 @@ export default async function EventPage({
           <InfoBlock
             icon={<CalendarDays className="h-5 w-5" />}
             label="Date"
-            value={date.full}
+            value={new Date().getDate().toString()}
           />
 
           <InfoBlock
@@ -174,7 +175,7 @@ export default async function EventPage({
                 </span>
 
                 <span className="mt-1 block text-7xl font-medium leading-none tracking-[-0.06em]">
-                  {date.day}
+                  {new Date().getDate().toString()}
                 </span>
               </div>
             </div>
@@ -203,7 +204,9 @@ export default async function EventPage({
             {/* CTA */}
             <div className="mt-12">
               <Link
-                href="#"
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-4 bg-[#31553C] px-7 py-4 text-xs uppercase tracking-[0.2em] text-white transition hover:bg-[#26452F]"
               >
                 I&apos;m interested

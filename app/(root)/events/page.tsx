@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import { events } from "@/constants";
+import { WHATSAPP_LINK, WhatsAppIcon } from "@/constants/svgs";
 import ParallaxImage from "@/components/ui/parallax-image";
+
 
 function formatDate(date: string) {
   const parsed = new Date(date);
@@ -163,11 +165,13 @@ export default function EventsPage() {
             </div>
 
             <Link
-              href="#"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-4 border-b border-white/30 pb-3 text-xs uppercase tracking-[0.2em] hover:border-white"
             >
               Join Our WhatsApp Community
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <WhatsAppIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
             </Link>
           </div>
         </div>

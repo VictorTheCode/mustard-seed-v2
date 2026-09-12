@@ -123,22 +123,22 @@ export const stories = [
     id: 1,
     content:
       "Joining Mustard Seed Teens completely changed the way I saw myself. I found people who encouraged me, prayed with me, and helped me discover that I could actually use my gifts for something meaningful.",
-    author: "David O.",
+    author: "Precious O.",
     role: "Mustard Seed Teen",
   },
   {
     id: 2,
     content:
-      "The community here is different. I came because of the activities, but I stayed because of the people. I have grown spiritually and personally in ways I never expected.",
-    author: "Amina Y.",
+      "I came because of the activities, but I stayed because of the people. I have grown spiritually and personally in ways I never expected.",
+    author: "Destiny N.",
     role: "Mustard Seed Teen",
   },
   {
     id: 3,
     content:
       "I used to be very quiet and afraid to take responsibility. Being given opportunities to serve helped me become more confident and discover leadership in myself.",
-    author: "James T.",
-    role: "Volunteer",
+    author: "Victor O.",
+    role: "Media Personnel",
   },
 ];
 

@@ -50,7 +50,7 @@ export default function GetInvolvedPage() {
       {/* HERO */}
       <section className="relative min-h-[75vh] overflow-hidden bg-black text-white">
         <Image
-          src="/assets/get-involved.jpg"
+          src="/assets/lifted-hands.jpg"
           alt="Mustard Seed Teens"
           fill
           priority
