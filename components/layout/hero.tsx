@@ -6,7 +6,9 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Play, ArrowDown } from "lucide-react";
 import { useRef } from "react";
 
-const container = {
+import type { Variants } from "motion/react";
+
+const container: Variants = {
   hidden: {},
   show: {
     transition: {
@@ -16,7 +18,7 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: {
     opacity: 0,
     y: 24,

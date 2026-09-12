@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUpRight,
   Check,
@@ -19,7 +20,13 @@ const Give = () => {
     <main className="min-h-screen bg-[#0B0B0B] text-white">
       <section className="relative flex min-h-[75vh] items-end overflow-hidden">
         <div className="absolute inset-0">
-          <div className="h-full w-full bg-[url('/assets/bgcoordinators.jpg')] bg-cover bg-center" />
+          <Image
+            src="/assets/bgcoordinators.jpg"
+            alt="Giving background"
+            fill
+            priority
+            className="object-cover object-center"
+          />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-black/30 to-black/20" />
         </div>
