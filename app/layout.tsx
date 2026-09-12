@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./typography.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const display = localFont({
   src: [
@@ -48,14 +47,7 @@ export default function RootLayout({
       className={`${display.variable} dark h-full antialiased`}
     >
       <body className={`${display.className} bg-[#0c130e] text-[#f2f7f3]`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
